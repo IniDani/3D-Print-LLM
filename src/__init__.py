@@ -11,6 +11,7 @@ memory = ChatMemory()
 def chat_once(user_input: str, thread_id="default"):
     # Load chat history
     chat_history = memory.load(thread_id)
+    print(chat_history)
 
     # Format prompt using previous messages
     formatted_prompt = prompt_instance.get_prompt(
