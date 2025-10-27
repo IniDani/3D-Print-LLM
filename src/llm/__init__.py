@@ -4,17 +4,18 @@ from prompts import Prompt
 
 # Initialize
 llm_instance = LLMBot().llm
-prompt_instance = Prompt().prompt
+prompt_instance = Prompt()
 
 # Chain them together
-chain = prompt_instance | llm_instance
+chain = prompt_instance.prompt | llm_instance
 
 # Run
 result = chain.invoke(
     {
-        "output_language": "German",
-        "input": "I love programming.",
-        "input_language": "English",
+        "user_name": prompt_instance.get_prompt(user_input="Halo saya mau print casing"),
+        "current_date": prompt_instance.get_prompt(user_input="Halo saya mau print casing"),
+        "chat_history": prompt_instance.get_prompt(user_input="Halo saya mau print casing"),
+        "input": prompt_instance.get_prompt(user_input="Halo saya mau print casing")
     }
 )
 
