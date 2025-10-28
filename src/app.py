@@ -15,7 +15,7 @@ load_dotenv()
 GROQ_KEY = os.getenv("GROQ_KEY")
 
 model = ChatGroq(
-    model="llama-3.3-70b-versatile",
+    model="openai/gpt-oss-20b",
     temperature=0.1,
     max_tokens=1000,
     api_key=GROQ_KEY,
@@ -67,6 +67,7 @@ config: RunnableConfig = {"configurable": {"thread_id": "1"}}
 agent.invoke({"messages": "Halo nama saya Fawwaz"}, config)
 agent.invoke({"messages": "Saya ingin ngeprint sebuah vas dengan radius 20 cm dan tinggi 10 cm"}, config)
 agent.invoke({"messages": "Saya juga ingin buang air besar"}, config)
-final_response = agent.invoke({"messages": "Berapa luas area dan volume dari model yang ingin saya print? Berapa juga harganya apabila saya ingin menggunakan bahan PLA?"}, config)
+final_response = agent.invoke({"messages": "saya siapa?"}, config)
 
-final_response["messages"][-1].pretty_print()
+final_final_response = final_response["messages"][-1]
+print(final_final_response.content)
