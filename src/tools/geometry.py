@@ -32,8 +32,8 @@ def _need(keys, d: Dict[str, float]):
 def _normalize_dims(shape: str, dims: Dict[str, float]) -> Dict[str, float]:
     raw = {k.strip().lower(): v for k, v in dims.items()}
     alias = {
-        "r": ["r","radius","jari","jari2","jari-jari"],
-        "R": ["R","r_major","major_radius","radius_utama"],
+        "r": ["r","radius","jari","jari2","jari-jari", "radius kecil"],
+        "R": ["R","r_major","major_radius","radius_utama", "radius besar"],
         "a": ["a","side","sisi"],
         "b": ["b","base","alas"],
         "l": ["l","length","long","panjang","x"],
