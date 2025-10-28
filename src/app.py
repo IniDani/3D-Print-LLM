@@ -6,6 +6,11 @@ from langchain.agents.middleware import SummarizationMiddleware
 from langgraph.checkpoint.memory import InMemorySaver
 from langchain_core.runnables import RunnableConfig
 
+# Untuk tools
+from tools import TOOLS
+
+
+
 load_dotenv()
 GROQ_KEY = os.getenv("GROQ_KEY")
 
@@ -37,11 +42,13 @@ system_prompt = """You are **PrintAI**, a friendly and professional AI customer 
           5. Never show Thought/Action/Observation — only return the Final Answer.
           """
 
+
+
 checkpointer = InMemorySaver()
 
 agent = create_agent(
     model, 
-    tools=[], 
+    tools=TOOLS, 
     system_prompt=system_prompt,
     middleware=[
         SummarizationMiddleware(
@@ -50,13 +57,16 @@ agent = create_agent(
             messages_to_keep=20
         )
     ],
-    checkpointer=checkpointer)
+    checkpointer=checkpointer,
+    )
+
+
 
 config: RunnableConfig = {"configurable": {"thread_id": "1"}}
 
-agent.invoke({"messages": "halo nama saya fred"}, config)
-agent.invoke({"messages": "saya ingin ngeprint casing HP dengan ukuran 15x7x1 cm"}, config)
-agent.invoke({"messages": "bandingin harga kalau pake PLA vs ABS"}, config)
-final_response = agent.invoke({"messages": "namaku siapa?"}, config)
+agent.invoke({"messages": "Halo nama saya Fawwaz"}, config)
+agent.invoke({"messages": "Saya ingin ngeprint sebuah vas dengan radius 20 cm dan tinggi 10 cm"}, config)
+agent.invoke({"messages": "Saya juga ingin buang air besar"}, config)
+final_response = agent.invoke({"messages": "Berapa luas area dan volume dari model yang ingin saya print? Berapa juga harganya apabila saya ingin menggunakan bahan PLA?"}, config)
 
 final_response["messages"][-1].pretty_print()
