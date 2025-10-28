@@ -6,7 +6,7 @@ class CostArgs(BaseModel):
     volume_mm3: float = Field(..., gt=0, description="Total volume padat model (mm^3)")
     material: Literal["PLA", "ABS"] = "PLA"
     infill_percent: float = Field(
-        20, ge=0, le=100, description="Persentase pengisian (0–100). Tidak termasuk shell/wall."
+        20, ge=0, le=100, description="Persentase pengisian (0-100). Tidak termasuk shell/wall."
     )
     # Opsional override (kalau mau uji coba harga/tipe material lain)
     rate_idr_per_g: Optional[float] = Field(

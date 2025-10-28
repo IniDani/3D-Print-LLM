@@ -29,6 +29,7 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user:
         return
+        
     author_id = message.author.id
     user_input = message.content
     config: RunnableConfig = {"configurable": {"thread_id": f"discord_{author_id}"}}
