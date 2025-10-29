@@ -9,6 +9,11 @@ Agent ini tidak hanya bisa menjawab percakapan teks, tapi juga **melakukan perhi
 
 ---
 
+![Demo](Demo1.png)
+
+![Demo](Demo2.png)
+
+
 ## 🚀 Fitur Utama
 
 - 💬 **Conversational AI:** Berinteraksi dengan user melalui **Discord bot**.  
@@ -24,6 +29,7 @@ Agent ini tidak hanya bisa menjawab percakapan teks, tapi juga **melakukan perhi
 
 ## 📂 Struktur Proyek
 
+```
 3D-Print-LLM/
 ├─ src/
 │  ├─ tools/
@@ -42,7 +48,41 @@ Agent ini tidak hanya bisa menjawab percakapan teks, tapi juga **melakukan perhi
 ├─ requirements.txt
 ├─ README.md
 └─ LICENSE (optional)
+```
+
+## Instalasi
+
+1. Lakukan git clone project,
+```
+git clone github.com/IniDani/3D-Print-LLM
+cd 3D-Print-LLM
+```
+2. Buat virtual environment dan install semua dependencies
+
+```
+python -m venv .llm
+source .llm/bin/activate
+pip install -r requirements.txt
+```
+
+3. Masukkan token yang diperlukan di file .env, referensi ada di .env.example
+
+4. Jalankan bot dengan menggunakan
+```
+python3 src/main_discord.py
+```
+
+5. (Optional) Testing bisa dilakukan menggunakan
+
+```
+python -m pytest -q
+```
 
 
-Link video YouTube:
+## Useful Links
+
+Link video YouTube:\
 https://youtu.be/FPzwacJWM3c
+
+Link Medium: \
+https://fidelyafr.medium.com/proyek-3d-printer-chatbot-berbasis-llm-agent-73009c37f602
